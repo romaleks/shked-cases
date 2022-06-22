@@ -6,7 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Date, Boolean
 from sqlalchemy.orm import sessionmaker
 
-engine = create_engine('sqlite://shked-cases/kentofariki.db?check_same_thread=False')
+engine = create_engine('sqlite:///kentofariki.db?check_same_thread=False')
 Base = declarative_base()
 
 class User(Base):
