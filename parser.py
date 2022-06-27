@@ -6,7 +6,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Date, Boolean
 from sqlalchemy.orm import sessionmaker
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5cfa9c6406c51e0c62acb4f782d354443f12dbec
 engine = create_engine('sqlite:///kentofariki.db?check_same_thread=False')
 Base = declarative_base()
 
