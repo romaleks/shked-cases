@@ -17,11 +17,7 @@ headerLinks.forEach((link) => link.addEventListener('click', function() {
 const liveDrop = document.querySelector('.live-drop__section');
 const liveDrops = liveDrop.children;
 
-for (const item of liveDrops) {
-   item.addEventListener('click', function() {
-      for (const item of liveDrops) {
-         item.classList.remove('active')
-      }
-      item.classList.add('active')
-   })
-}
+liveDrops.forEach((item) => item.addEventListener('click', function() {
+   liveDrops.forEach((item) => item.classList.remove('active'));
+   item.classList.add('active');
+}));

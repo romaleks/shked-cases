@@ -26,6 +26,12 @@
             filter: invert(24%) sepia(73%) saturate(7474%) hue-rotate(327deg) brightness(98%) contrast(102%);
          }
       }
+      &.active {
+         background: linear-gradient(#EB0C6326 -10%, #1B212F 85%);
+         img {
+            filter: invert(24%) sepia(73%) saturate(7474%) hue-rotate(327deg) brightness(98%) contrast(102%);
+         }
+      }
       &:after {
          content: '';
          width: 1px;

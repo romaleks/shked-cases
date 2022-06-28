@@ -165,6 +165,14 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-filter: invert(24%) sepia(73%) saturate(7474%) hue-rotate(327deg) brightness(98%) contrast(102%);
           filter: invert(24%) sepia(73%) saturate(7474%) hue-rotate(327deg) brightness(98%) contrast(102%);
 }
+.header li.active {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(-10%, rgba(235, 12, 99, 0.1490196078)), color-stop(85%, #1B212F));
+  background: linear-gradient(rgba(235, 12, 99, 0.1490196078) -10%, #1B212F 85%);
+}
+.header li.active img {
+  -webkit-filter: invert(24%) sepia(73%) saturate(7474%) hue-rotate(327deg) brightness(98%) contrast(102%);
+          filter: invert(24%) sepia(73%) saturate(7474%) hue-rotate(327deg) brightness(98%) contrast(102%);
+}
 .header li:after {
   content: "";
   width: 1px;
@@ -343,7 +351,6 @@ body {
   color: #fff;
   font-size: 20px;
   line-height: 23px;
-  background-color: #181822;
   padding: 18px 20px 19px 30px;
   position: relative;
   border-radius: 0 0 20px 0;
@@ -364,6 +371,9 @@ body {
   margin: -3px 0px 0px 0px;
 }
 .live-drop__best:hover {
+  background-color: #181822;
+}
+.live-drop__best.active {
   background-color: #181822;
 }
 .live-drop__online {
@@ -389,6 +399,9 @@ body {
   margin: -3px 0px 0px 0px;
 }
 .live-drop__online:hover {
+  background-color: #181822;
+}
+.live-drop__online.active {
   background-color: #181822;
 }
 .live-drop__items {

@@ -8,6 +8,25 @@ function ibg() {
    });
 }
 ibg();
+
+const headerLinks = document.querySelectorAll('[data-elem="menu"]');
+
+headerLinks.forEach((link) => link.addEventListener('click', function() {
+   headerLinks.forEach((link) => link.classList.remove('active'));
+   link.classList.add('active');
+}));
+
+const liveDrop = document.querySelector('.live-drop__section');
+const liveDrops = liveDrop.children;
+
+for (const item of liveDrops) {
+   item.addEventListener('click', function() {
+      for (const item of liveDrops) {
+         item.classList.remove('active')
+      }
+      item.classList.add('active')
+   })
+}
 //SLIDERS
 if($('.slider__body').length>0){
    $('.slider__body').slick({
