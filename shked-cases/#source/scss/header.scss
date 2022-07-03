@@ -95,9 +95,11 @@
 .sign-up {
    @include flexbox();
    align-items: flex-end;
+   justify-content: center;
    padding: 18px 20px;
    background: #1F1E2E;
    border-radius: 0 50px 50px 0;
+   min-width: 151px;
    &__icon {
       filter: invert(100%) sepia(0%) saturate(7463%) hue-rotate(47deg) brightness(102%) contrast(95%);
       margin: 0px 5px 0px 0px;

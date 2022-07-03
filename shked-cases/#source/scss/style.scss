@@ -185,3 +185,76 @@ body {
    padding: 40px 0px 0px 0px;
 }
 //===============================================================================================================================
+.case-content {
+   padding: 60px 0;
+   text-align: center;
+   font-weight: 700;
+   color: #fff;
+   text-transform: uppercase;
+   &__title {
+      font-size: 32px;
+      line-height: 37px;
+      position: relative;
+      margin: 0px 0px 45px 0px;
+      .pink {
+         color: #FA146E;
+      }
+      &:after {
+         content: '';
+         position: absolute;
+         width: 60px;
+         height: 4px;
+         background-color: #FA146E;
+         left: 50%;
+         @include tr(-50%,0px,0px);
+         bottom: -15px;
+      }
+   }
+
+   &__image {
+      margin: 0px 0px 30px 0px;
+   }
+
+   &__button {
+      padding: 10px 40px;
+   }
+}
+//===============================================================================================================================
+.case-contents {
+   background: #1B212F;
+   &__title {
+      padding: 35px 0;
+      font-weight: 700;
+      font-size: 28px;
+      color: #FFFFFF;
+      line-height: 32px;
+      text-align: center;
+      text-transform: uppercase;
+      .blue {
+         color: #00ADFF;
+      }
+   }
+
+   &__row {
+      @include flexbox();
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 0 auto;
+   }
+
+   &__item {
+      flex: 0 0 20%;
+      max-width: 200px;
+      min-height: 150px;
+      margin: 0px 0px 35px 0px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      .item__image{
+         margin: 0px 0px 10px 0px;
+      }
+   }
+}
+
+.space {
+   padding: 100px;
+}
