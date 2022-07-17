@@ -1,0 +1,264 @@
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>================================================================================
+@import "mixins.scss";
+@import "ui.scss";
+@import "header.scss";
+@import "footer.scss";
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>================================================================================
+
+body {
+   background-color: #181822;
+}
+
+//===============================================================================================================================
+[data-rarity="Mil-Spec Grade"] {
+   background: linear-gradient(#0f3e8f, #30566700 110%);
+}
+[data-rarity="Restricted"] {
+   background: linear-gradient(#503187, #30224900 110%);
+}
+[data-rarity="Classified"] {
+   background: linear-gradient(#8f2c55, #59243A00 110%);
+}
+[data-rarity="Covert"] {
+   background: linear-gradient(#792e30, #61262800 110%);
+}
+
+.live-drop {
+   padding: 25px 0 0 0;
+   background-color: #1B212F;
+   @include flexbox();
+   &__section {
+   }
+
+   &__best {
+      color: #fff;
+      font-size: 20px;
+      line-height: 23px;
+      padding: 18px 20px 19px 30px;
+      position: relative;
+      border-radius: 0 0 20px 0;
+      white-space: nowrap;
+      margin: 0px 0px 1px 0px;
+      &:before {
+         content: '';
+         position: absolute;
+         width: 6px;
+         height: 6px;
+         background-color: #FB136E;
+         border-radius: 50%;
+         box-shadow: 0 0 10px #FB136E;
+         top: 50%;
+         left: 13px;
+         margin: -3px 0px 0px 0px;
+      }
+      &:hover {
+         background-color: #181822;
+      }
+      &.active {
+         background-color: #181822;
+      }
+   }
+
+   &__online {
+      color: #fff;
+      font-size: 20px;
+      line-height: 23px;
+      padding: 18px 20px 18px 30px;
+      position: relative;
+      border-radius: 0 20px 0 0;
+      white-space: nowrap;
+      &:before {
+         content: '';
+         position: absolute;
+         width: 6px;
+         height: 6px;
+         background-color: #0F7EB1;
+         border-radius: 50%;
+         box-shadow: 0 0 10px #0F7EB1;
+         top: 50%;
+         left: 13px;
+         margin: -3px 0px 0px 0px;
+      }
+      &:hover {
+         background-color: #181822;
+      }
+      &.active {
+         background-color: #181822;
+      }
+   }
+
+   &__items {
+      @include flexbox();
+      flex-wrap: nowrap;
+   }
+
+   &__item {
+      margin: 0px 3px 0px 0px;
+   }
+}
+.item {
+   width: 170px;
+   padding: 10px 0px 0px 0px;
+   border-radius: 7px;
+   text-align: center;
+   max-height: 120px;
+   white-space: nowrap;
+   &__image {
+   }
+
+   &__title {
+      color: #fff;
+      font-size: 14px;
+      line-height: 16px;
+   }
+
+   &__subtitle {
+      font-size: 11px;
+      line-height: 13px;
+      color: #545967;
+      text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.64); 
+   }
+}
+//===============================================================================================================================
+.popular {
+   padding: 80px 0px 0px 0px;
+   &__head {
+      margin: 0px 0px 50px 0px;
+   }
+
+   &__cases {
+   }
+}
+.head {
+   text-transform: uppercase;
+   text-align: center;
+   &__icon {
+      filter: invert(21%) sepia(96%) saturate(6221%) hue-rotate(329deg) brightness(100%) contrast(98%);
+   }
+
+   &__title {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 37px;
+      background: linear-gradient(#FA136D 3.33%, #813E73 72.73%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0px 4px 25px rgba(252, 13, 106, 0.34);
+      margin: 0px 0px 4px 0px;
+   }
+
+   &__subtitle {
+      color: #fff;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+   }
+}
+.cases {
+   @include flexbox();
+   flex-wrap: wrap;
+   text-align: center;
+   &__case {
+      margin: 0px 0px 50px 0px;
+   }
+}
+.case {
+   flex: 0 0 25%;
+   cursor: pointer;
+   &__logo {
+      margin: 0px 0px 20px 0px;
+      transition: all 0.3s ease;
+      &:hover {
+         @include scale(1.05);
+      }
+   }
+
+   &__title {
+      color: #fff;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 23px;
+   }
+}
+
+.default {
+   padding: 40px 0px 0px 0px;
+}
+//===============================================================================================================================
+.case-content {
+   padding: 60px 0;
+   text-align: center;
+   font-weight: 700;
+   color: #fff;
+   text-transform: uppercase;
+   &__title {
+      font-size: 32px;
+      line-height: 37px;
+      position: relative;
+      margin: 0px 0px 45px 0px;
+      .pink {
+         color: #FA146E;
+      }
+      &:after {
+         content: '';
+         position: absolute;
+         width: 60px;
+         height: 4px;
+         background-color: #FA146E;
+         left: 50%;
+      
+         bottom: -15px;
+      }
+   }
+
+   &__image {
+      margin: 0px 0px 30px 0px;
+   }
+
+   &__button {
+      padding: 10px 40px;
+   }
+}
+//===============================================================================================================================
+.case-contents {
+   background: #1B212F;
+   padding: 25px 0 35px;
+   &__title {
+      margin: 0px 0px 30px 0px;
+      font-weight: 700;
+      font-size: 28px;
+      color: #FFFFFF;
+      line-height: 32px;
+      text-align: center;
+      text-transform: uppercase;
+      .blue {
+         color: #00ADFF;
+      }
+   }
+
+   &__row {
+      @include flexbox();
+      gap: calc((1170px - 200px * 5) / 4);
+      flex-wrap: wrap;
+      margin: 0 auto;
+   }
+   
+   &__item { 
+      flex: 0 0 20%;
+      max-width: 200px;
+      min-height: 150px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      .item__image{
+         margin: 7px 0px 10px 0px;
+      }
+   }
+}
+
+.space {
+   padding: 100px;
+}
