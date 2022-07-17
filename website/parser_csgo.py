@@ -7,14 +7,8 @@ from sqlalchemy import Column, Integer, String, Date, Boolean
 from sqlalchemy.orm import sessionmaker
 import datetime
 
-
-<<<<<<<< HEAD:website/parser_csgo.py
 from .models import Case, CSGO_Item, User_info
 from . import db
-========
-engine = create_engine('sqlite:///kentofariki.db?check_same_thread=False')
-Base = declarative_base()
->>>>>>>> 33be6ed55355f2eeb222edf90e83b804ade37700:parser_csgo.py
 
 
 # engine = create_engine('sqlite:///kentofariki.db?check_same_thread=False')
