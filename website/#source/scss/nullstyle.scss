@@ -1,0 +1,39 @@
+$fontfamily:"Ubuntu", sans-serif;
+
+/*Обнуление*/
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;font-family:$fontfamily;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:$fontfamily;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+$minwidth:320px;
+$mw:1170px;
+$md1:$mw+12px;
+$md2:992.98px;
+$md3:767.98px;
+$md4:479.98px;
+
+.wrapper{width: 100%;min-height: 100%;overflow: hidden;
+}
+
+.container{
+   max-width: $mw;margin: 0 auto;width: 100%;
+   @media (max-width:$md1){max-width: 970px};
+   @media (max-width:$md2){max-width: 750px};
+   @media (max-width:$md3){max-width: none;padding: 0 10px};
+}
+   
+/*--------------------*/

@@ -5,89 +5,56 @@ from sqlalchemy import create_engine, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Date, Boolean
 from sqlalchemy.orm import sessionmaker
+import datetime
 
 
-engine = create_engine('sqlite:///kentofariki.db?check_same_thread=False')
-Base = declarative_base()
+from .models import Case, CSGO_Item, User_info
+from . import db
 
-class User(Base):
-    __tablename__ = 'user'
-    id = Column(Integer, primary_key=True)
-    username = Column(String)
-    email = Column(String)
-    password = Column(String)
 
-    def __repr__(self):
-        return '''<Item(username={username},
-                     email={email},
-                     password={password}>'''\
-            .format(username=self.username,
-                    email=self.email, password=self.password)
+# engine = create_engine('sqlite:///kentofariki.db?check_same_thread=False')
+# Base = declarative_base()
 
-class User_price(Base):
-    __tablename__ = 'user_price'
-    id = Column(Integer, primary_key=True)
-    user = Column(String)
-    price = Column(Integer)
+# class User(Base):
+#     __tablename__ = 'user'
+#     id = Column(Integer, primary_key=True)
+#     username = Column(String)
+#     email = Column(String, unique = True)
+#     password = Column(String)
 
-    def __repr__(self):
-        return '''<Item(user={user},
-                     price={price}>'''\
-            .format(user=self.user,
-                    price=self.price)
+# class User_price(Base):
+#     __tablename__ = 'user_price'
+#     id = Column(Integer, primary_key=True)
+#     user = Column(String)
+#     price = Column(Integer)
 
-class User_info(Base):
-    __tablename__ = 'user_info'
-    id = Column(Integer, primary_key=True)
-    user = Column(String)
-    item = Column(String)
-    opened_at = Column(DateTime)
+# class User_info(Base):
+#     __tablename__ = 'user_info'
+#     id = Column(Integer, primary_key=True)
+#     user = Column(String)
+#     item = Column(String)
+#     opened_at = Column(DateTime)
 
-    def __repr__(self):
-        return '''<Item(user={user},
-                     item={item},
-                     opened_at={opened_at}>'''\
-            .format(user=self.user,
-                    item=self.item,
-                    opened_at=self.opened_at)
+# class Case(Base):
+#     __tablename__ = 'case'
+#     id = Column(Integer, primary_key=True)
+#     name = Column(String)
+#     icon_url = Column(String)
 
-class Case(Base):
-    __tablename__ = 'case'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    icon_url = Column(String)
+# class CSGO_Item(Base):
+#     __tablename__ = 'csgo_items'
+#     id = Column(Integer, primary_key=True)
+#     name = Column(String)
+#     rarity = Column(String)
+#     quality = Column(String)
+#     stattrak = Column(Boolean)
+#     case = Column(String, default="No collection")
+#     icon_url = Column(String)
+#     price = Column(Integer)
 
-    def __repr__(self):
-        return '''<Item(name={name}, icon_url={icon_url}>'''\
-            .format(name=self.name, icon_url=self.icon_url)
-
-class CSGO_Item(Base):
-    __tablename__ = 'csgo_items'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    rarity = Column(String)
-    quality = Column(String)
-    stattrak = Column(Boolean)
-    case = Column(String, default="No collection")
-    icon_url = Column(String)
-    price = Column(Integer)
-
-    def __repr__(self):
-        return '''<Item(name={name},
-                     rarity={rarity},
-                     quality={quality},
-                     stattrak={stattrak},
-                     case={case},
-                     price={price}>'''\
-            .format(name=self.name,
-                    rarity=self.rarity,
-                    quality=self.quality,
-                    stattrak = self.stattrak,
-                    case=self.case, price=self.price)
-
-Base.metadata.create_all(engine)
-Session = sessionmaker(bind=engine)
-session = Session()
+# Base.metadata.create_all(engine)
+# Session = sessionmaker(bind=engine)
+# session = Session()
 
 pattern = r"(★?[a-zA-Z0-9- ]* \| [a-zA-Z0-9- ]*) (\([a-zA-Z- ]*\))"
 pattern_skin = r"(★?[a-zA-Z0-9- ]* \| [a-zA-Z0-9- ]*)"
@@ -132,8 +99,10 @@ case_skins = {
     "Winter Offensive Weapon Case": ['Galil AR | Sandstorm', 'Five-SeveN | Kami', 'M249 | Magma', 'PP-Bizon | Cobalt Halftone', 'FAMAS | Pulse', 'Dual Berettas | Marina', 'MP9 | Rose Iron', 'Nova | Rising Skull', 'M4A1-S | Guardian', 'P250 | Mehndi', 'AWP | Redline', 'M4A4 | Asiimov', 'Sawed-Off | The Kraken'],
     "eSports 2013 Case": ['M4A4 | Faded Zebra', 'MAG-7 | Memento', 'FAMAS | Doomkitty', 'Galil AR | Orange DDPAT', 'Sawed-Off | Orange DDPAT', 'P250 | Splash', 'AK-47 | Red Laminate', 'AWP | BOOM', 'P90 | Death by Kitty'],
     "eSports 2013 Winter Case": ['Galil AR | Blue Titanium', 'Five-SeveN | Nightshade', 'PP-Bizon | Water Sigil', 'Nova | Ghost Camo', 'G3SG1 | Azure Zebra', 'P250 | Steel Disruption', 'AK-47 | Blue Laminate', 'P90 | Blind Spot', 'FAMAS | Afterimage', 'AWP | Electric Hive', 'Desert Eagle | Cobalt Disruption', 'M4A4 | X-Ray'],
-    "eSports 2014 Summer Case": ['SSG 08 | Dark Water', 'MAC-10 | Ultraviolet', 'USP-S | Blood Tiger', 'CZ75-Auto | Hexane', 'Negev | Bratatat', 'XM1014 | Red Python', 'PP-Bizon | Blue Streak', 'P90 | Virus', 'MP7 | Ocean Foam', 'Glock-18 | Steel Disruption', 'Desert Eagle | Crimson Web', 'AUG | Bengal Tiger', 'Nova | Bloomstick', 'AWP | Corticera', 'P2000 | Corticera', 'M4A4 | Bullet Rain', 'AK-47 | Jaguar']
+    "eSports 2014 Summer Case": ['SSG 08 | Dark Water', 'MAC-10 | Ultraviolet', 'USP-S | Blood Tiger', 'CZ75-Auto | Hexane', 'Negev | Bratatat', 'XM1014 | Red Python', 'PP-Bizon | Blue Streak', 'P90 | Virus', 'MP7 | Ocean Foam', 'Glock-18 | Steel Disruption', 'Desert Eagle | Crimson Web', 'AUG | Bengal Tiger', 'Nova | Bloomstick', 'AWP | Corticera', 'P2000 | Corticera', 'M4A4 | Bullet Rain', 'AK-47 | Jaguar'],
+    "Recoil Case": ['FAMAS | Meow 36', 'Galil AR | Destroyer', 'M4A4 | Poly Mag', 'MAC-10 | Monkeyflage', 'Negev | Drop Me', 'UMP-45 | Roadblock', 'Glock-18 | Winterized', 'R8 Revolver | Crazy 8', 'M249 | Downtown', 'SG 553 | Dragon Tech', 'P90 | Vent Rush', 'Dual Berettas | Flora Carnivora', 'AK-47 | Ice Coaled', 'P250 | Visions', 'Sawed-Off | Kiss♥Love', 'USP-S | Printstream', 'AWP | Chromatic Aberration']
 }
+rarity_priority = { "Consumer Grade": 0,"Industrial Grade": 1,"Mil-Spec Grade": 2,"Restricted": 3,"Classified": 4,"Covert": 5 }
 
 
 # def get_case(skin):
@@ -173,9 +142,16 @@ for key in items_list:
 
         case = get_case(name.rstrip())
         if not case:
-            case = "Some Collection"
+            if data["items_list"][key]["weapon_type"] == "Knife":
+                case = "Knife"
+            else:
+                case = "Some Collection"
 
         rarity = data["items_list"][key]["rarity"]
+        if rarity in rarity_priority.keys():
+            priority = rarity_priority[rarity]
+        else:
+            priority = -1
         icon_url = image_url + data["items_list"][key]["icon_url"]
 
         try:
@@ -190,8 +166,8 @@ for key in items_list:
         else:
             stattrak = False
 
-        row = CSGO_Item(name=name, rarity=rarity, quality=quality, stattrak=stattrak, case=case, icon_url=icon_url, price=price)
-        session.add(row)
+        row = CSGO_Item(name=name, rarity=rarity, quality=quality, stattrak=stattrak, case=case, icon_url=icon_url, price=price, priority=priority)
+        db.session.add(row)
 
         continue
 
@@ -199,8 +175,10 @@ for key in items_list:
 
         icon_url = image_url + data["items_list"][key]["icon_url"]
         row = Case(name=key, icon_url=icon_url)
-        session.add(row)
+        db.session.add(row)
 
     else:
         continue
-session.commit()
+
+
+db.session.commit()

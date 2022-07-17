@@ -173,10 +173,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
 }
 .header li {
-  width: 150px;
-  height: 100px;
+  padding: 35px 30px 35px 25px;
   position: relative;
-  cursor: pointer;
 }
 .header li:hover {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(-10%, rgba(235, 12, 99, 0.1490196078)), color-stop(85%, #1B212F));
@@ -210,19 +208,6 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 .header__link {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 100%;
-  width: 100%;
-}
-.header__link-items {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -378,6 +363,26 @@ body {
   background-color: #181822;
 }
 
+[data-rarity="Mil-Spec Grade"] {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0f3e8f), color-stop(110%, rgba(48, 86, 103, 0)));
+  background: linear-gradient(#0f3e8f, rgba(48, 86, 103, 0) 110%);
+}
+
+[data-rarity=Restricted] {
+  background: -webkit-gradient(linear, left top, left bottom, from(#503187), color-stop(110%, rgba(48, 34, 73, 0)));
+  background: linear-gradient(#503187, rgba(48, 34, 73, 0) 110%);
+}
+
+[data-rarity=Classified] {
+  background: -webkit-gradient(linear, left top, left bottom, from(#8f2c55), color-stop(110%, rgba(89, 36, 58, 0)));
+  background: linear-gradient(#8f2c55, rgba(89, 36, 58, 0) 110%);
+}
+
+[data-rarity=Covert] {
+  background: -webkit-gradient(linear, left top, left bottom, from(#792e30), color-stop(110%, rgba(97, 38, 40, 0)));
+  background: linear-gradient(#792e30, rgba(97, 38, 40, 0) 110%);
+}
+
 .live-drop {
   padding: 25px 0 0 0;
   background-color: #1B212F;
@@ -454,31 +459,12 @@ body {
 }
 
 .item {
-  padding: 16px 50px;
+  width: 170px;
+  padding: 10px 0px 0px 0px;
   border-radius: 7px;
   text-align: center;
   max-height: 120px;
   white-space: nowrap;
-}
-.item_purple {
-  background: -webkit-gradient(linear, left top, left bottom, from(#302249), color-stop(110%, rgba(48, 34, 73, 0)));
-  background: linear-gradient(#302249, rgba(48, 34, 73, 0) 110%);
-}
-.item_pink {
-  background: -webkit-gradient(linear, left top, left bottom, from(#59243A), color-stop(110%, rgba(89, 36, 58, 0)));
-  background: linear-gradient(#59243A, rgba(89, 36, 58, 0) 110%);
-}
-.item_grey {
-  background: -webkit-gradient(linear, left top, left bottom, from(#52545A), color-stop(110%, rgba(82, 84, 90, 0)));
-  background: linear-gradient(#52545A, rgba(82, 84, 90, 0) 110%);
-}
-.item_red {
-  background: -webkit-gradient(linear, left top, left bottom, from(#612628), color-stop(110%, rgba(97, 38, 40, 0)));
-  background: linear-gradient(#612628, rgba(97, 38, 40, 0) 110%);
-}
-.item_blue {
-  background: -webkit-gradient(linear, left top, left bottom, from(#305667), color-stop(110%, rgba(48, 86, 103, 0)));
-  background: linear-gradient(#305667, rgba(48, 86, 103, 0) 110%);
 }
 .item__title {
   color: #fff;
@@ -580,8 +566,6 @@ body {
   height: 4px;
   background-color: #FA146E;
   left: 50%;
-  -webkit-transform: translate3d(-50%, 0px, 0px);
-  transform: translate3d(-50%, 0px, 0px);
   bottom: -15px;
 }
 .case-content__image {
@@ -593,9 +577,10 @@ body {
 
 .case-contents {
   background: #1B212F;
+  padding: 25px 0 35px;
 }
 .case-contents__title {
-  padding: 35px 0;
+  margin: 0px 0px 30px 0px;
   font-weight: 700;
   font-size: 28px;
   color: #FFFFFF;
@@ -610,9 +595,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  gap: 42.5px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0 auto;
@@ -623,13 +606,12 @@ body {
           flex: 0 0 20%;
   max-width: 200px;
   min-height: 150px;
-  margin: 0px 0px 35px 0px;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
 .case-contents__item .item__image {
-  margin: 0px 0px 10px 0px;
+  margin: 7px 0px 10px 0px;
 }
 
 .space {
