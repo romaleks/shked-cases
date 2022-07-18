@@ -23,21 +23,26 @@
                <ul class="header__menu">
                   <li data-elem="menu" class="active">
                      <a href="index.html" class="header__link">
-                        <div class="header__link-icon"><img src="{{ url_for('static', filename='home.svg') }}" width="35" height="31.21" alt=""></div>
-                        <div class="header__link-text">Home</div>
-                     </a>
-                  </li>
-                  <li data-elem="menu">
-                     <a href="case.html" class="header__link">
-                        <div class="header__link-icon"><img src="{{ url_for('static', filename='profile.svg') }}" width="35" height="31.21" alt=""></div>
-                        <div class="header__link-text">Profile</div>
+                        <div class="header__link-items">
+                           <div class="header__link-icon"><img src="{{ url_for('static', filename='home.svg') }}" width="35" height="31.21" alt=""></div>
+                           <div class="header__link-text">Home</div>
+                        </div>
                      </a>
                   </li>
                   <li data-elem="menu">
                      <a href="#" class="header__link">
-                        <div class="header__link-icon"><img src="{{ url_for('static', filename='inventory.svg') }}" width="35" height="31.21" alt="">
+                        <div class="header__link-items">
+                           <div class="header__link-icon"><img src="{{ url_for('static', filename='profile.svg') }}" width="35" height="31.21" alt=""></div>
+                           <div class="header__link-text">Profile</div>
                         </div>
-                        <div class="header__link-text">Inventory</div>
+                     </a>
+                  </li>
+                  <li data-elem="menu">
+                     <a href="inventory.html" class="header__link">
+                        <div class="header__link-items">
+                           <div class="header__link-icon"><img src="{{ url_for('static', filename='inventory.svg') }}" width="35" height="31.21" alt=""></div>
+                           <div class="header__link-text">Inventory</div>
+                        </div>
                      </a>
                   </li>
                </ul>
