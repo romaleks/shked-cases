@@ -210,7 +210,7 @@ body {
          height: 4px;
          background-color: #FA146E;
          left: 50%;
-      
+         @include tr(-50%,0px,0px);
          bottom: -15px;
       }
    }

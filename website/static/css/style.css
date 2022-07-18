@@ -572,6 +572,8 @@ body {
   height: 4px;
   background-color: #FA146E;
   left: 50%;
+  -webkit-transform: translate3d(-50%, 0px, 0px);
+  transform: translate3d(-50%, 0px, 0px);
   bottom: -15px;
 }
 .case-content__image {
