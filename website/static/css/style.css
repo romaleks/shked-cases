@@ -141,6 +141,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   font-size: 32px;
   line-height: 41px;
+  cursor: pointer;
   -webkit-transition: all 0.2s ease 0s;
   transition: all 0.2s ease 0s;
 }
@@ -483,6 +484,7 @@ body {
 }
 .live-drop__item {
   margin: 0px 3px 0px 0px;
+  max-height: 120px;
 }
 
 .item {
@@ -490,7 +492,6 @@ body {
   padding: 10px 0px 0px 0px;
   border-radius: 7px;
   text-align: center;
-  max-height: 120px;
   white-space: nowrap;
 }
 .item__title {
@@ -612,10 +613,19 @@ body {
 
 .case-contents {
   background: #1B212F;
-  padding: 25px 0 35px;
+  padding: 0 0 35px 0;
 }
 .case-contents__title {
-  margin: 0px 0px 30px 0px;
+  padding: 35px 0;
+  font-weight: 700;
+  font-size: 28px;
+  color: #FFFFFF;
+  line-height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.case-contents__title .blue {
+  color: #00ADFF;
 }
 .case-contents__row {
   display: -webkit-box;
@@ -645,11 +655,11 @@ body {
 }
 
 .inventory {
-  padding: 40px;
+  padding: 70px;
 }
 .inventory__title {
   position: relative;
-  margin: 0 0 70px 0;
+  margin: 0 0 50px 0;
 }
 .inventory__title:after {
   content: "";
@@ -662,12 +672,16 @@ body {
   transform: translate3d(-50%, 0px, 0px);
   bottom: -15px;
 }
+.inventory__title span {
+  margin: 0 7px 0 0;
+}
 .inventory__drops {
   margin: 0 auto;
 }
 
 .drops {
-  padding: 30px 0 100px 0;
+  padding: 30px 0 0 0;
+  margin-bottom: 50px;
   background: #1B212F;
   max-width: 1400px;
   border-radius: 36px;
@@ -691,19 +705,33 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 35px;
+  padding: 40px 60px;
+}
+.drops__cnt {
+  text-align: center;
+  -webkit-box-flex: 20%;
+      -ms-flex: 20%;
+          flex: 20%;
+  margin: 0 0 30px 0;
 }
 .drops__item {
-  padding: 45px 30px 30px 30px;
+  display: inline-block;
+  padding-bottom: 20px;
+  min-width: 200px;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin: 0 0 10px 0;
 }
-.drops__weapon {
-  margin: 0 0 25px 0;
+.drops__item .item__image {
+  margin: 7px 0px 10px 0px;
 }
 .drops__btn {
+  display: inline-block;
   font-size: 20px;
   text-transform: none;
   line-height: normal;
-  padding: 5px 10px;
+  padding: 3px 30px;
   -webkit-box-shadow: none;
           box-shadow: none;
   border-radius: 8px;
