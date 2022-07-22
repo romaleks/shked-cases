@@ -81,12 +81,16 @@
             <div class="drops__content">
                <div class="container">
                   <div class="drops__item item">
-                     <div class="drops__weapon">
-                        <div class="item__image"><img src="{{ value[1] }}" alt="" width="100" height="70"></div>
-                        <div class="item__title"></div>
-                        <div class="item__subtitle"></div>
+                     {% if user_items is defined %}
+                     {% for key, value in user_items.items() %}
+                     <div class="drops__weapon" data-rarity="{{ value[3] }}">
+                        <div class="item__image"><img src="{{ value[2] }}" alt="" width="100" height="70"></div>
+                        <div class="item__title">{{ value[0] }}</div>
+                        <div class="item__subtitle">{{ value[1] }}</div>
                      </div>
                      <div class="drops__btn btn">sell</div>
+                     {% endfor %}
+                     {% endif %}
                   </div>
                </div>
             </div>

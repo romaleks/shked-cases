@@ -11,50 +11,6 @@ from .models import Case, CSGO_Item, User_info
 from . import db
 
 
-# engine = create_engine('sqlite:///kentofariki.db?check_same_thread=False')
-# Base = declarative_base()
-
-# class User(Base):
-#     __tablename__ = 'user'
-#     id = Column(Integer, primary_key=True)
-#     username = Column(String)
-#     email = Column(String, unique = True)
-#     password = Column(String)
-
-# class User_price(Base):
-#     __tablename__ = 'user_price'
-#     id = Column(Integer, primary_key=True)
-#     user = Column(String)
-#     price = Column(Integer)
-
-# class User_info(Base):
-#     __tablename__ = 'user_info'
-#     id = Column(Integer, primary_key=True)
-#     user = Column(String)
-#     item = Column(String)
-#     opened_at = Column(DateTime)
-
-# class Case(Base):
-#     __tablename__ = 'case'
-#     id = Column(Integer, primary_key=True)
-#     name = Column(String)
-#     icon_url = Column(String)
-
-# class CSGO_Item(Base):
-#     __tablename__ = 'csgo_items'
-#     id = Column(Integer, primary_key=True)
-#     name = Column(String)
-#     rarity = Column(String)
-#     quality = Column(String)
-#     stattrak = Column(Boolean)
-#     case = Column(String, default="No collection")
-#     icon_url = Column(String)
-#     price = Column(Integer)
-
-# Base.metadata.create_all(engine)
-# Session = sessionmaker(bind=engine)
-# session = Session()
-
 pattern = r"(★?[a-zA-Z0-9- ]* \| [a-zA-Z0-9- ]*) (\([a-zA-Z- ]*\))"
 pattern_skin = r"(★?[a-zA-Z0-9- ]* \| [a-zA-Z0-9- ]*)"
 pattern_float = r"(\([a-zA-Z- ]*\))"
@@ -127,7 +83,6 @@ def get_case(skin):
 
 response = requests.get("http://csgobackpack.net/api/GetItemsList/v2/")
 data = response.json()
-print(data)
 items_list = list(data["items_list"].keys())
 for key in items_list:
     if data["items_list"][key]["type"] == "Weapon":

@@ -41,8 +41,8 @@ def home():
         rarity = last_item_row.rarity
         id = last_item.id
         data_drop[id] = [weapon, skin, url, rarity]
-
-    return render_template("inventory.html", mydict=data_cases, drop=data_drop)
+        
+    return render_template("index.html", mydict=data_cases, drop=data_drop)
 
 
 @app.route("/case/<usercase>")
@@ -81,6 +81,35 @@ def case_items(usercase):
 
 
     return render_template("case.html", mydict=data_case_items, case=data_case, drop=data_drop)
+
+
+@app.route("/inventory")
+def inventory():
+
+    data_items = {}
+    items = db.session.query(models.CSGO_Item).limit(30)
+    for item in items:
+        weapon = item.name.split("|")[0]
+        skin = item.name.split("|")[1]
+        data_items[item.id] = [weapon, skin, item.icon_url, item.rarity]
+
+
+    last_items = db.session.query(models.User_info).order_by(models.User_info.opened_at.desc()).limit(15)
+    data_drop = {}
+
+    for last_item in last_items:
+
+        item = re.findall(pattern_skin, last_item.item)[0]
+        weapon = item.split("|")[0]
+        skin = item.split("|")[1]
+        quality = re.findall(pattern_float, last_item.item)[0]
+        last_item_row = db.session.query(models.CSGO_Item).filter(models.CSGO_Item.name==item and models.CSGO_Item.quality==quality).first()
+        url = last_item_row.icon_url
+        rarity = last_item_row.rarity
+        id = last_item.id
+        data_drop[id] = [weapon, skin, url, rarity]
+        
+    return render_template("inventory.html", user_items=data_items, drop=data_drop)
 
 
 if __name__ == '__main__':
