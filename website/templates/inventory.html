@@ -1,0 +1,130 @@
+<!-- Сообщаем браузеру как стоит обрабатывать эту страницу -->
+<!DOCTYPE html>
+<!-- Оболочка документа, указываем язык содержимого -->
+<html lang="ru">
+<!-- Заголовок страницы, контейнер для других важных данных (не отображается) -->
+
+<head>
+   <!-- Заголовок страницы в браузере -->
+   <title>Shked Cases</title>
+   <!-- Подключаем CSS -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+   <!-- Кодировка страницы -->
+   <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+</head>
+
+<body>
+   <div class="wrapper">
+      <header class="header">
+         <div class="container">
+            <div class="header__row">
+               <div class="header__logo"></div>
+               <ul class="header__menu">
+                  <li data-elem="menu" class="active">
+                     <a href="index.html" class="header__link">
+                        <div class="header__link-items">
+                           <div class="header__link-icon"><img src="{{ url_for('static', filename='home.svg') }}" width="35" height="31.21" alt=""></div>
+                           <div class="header__link-text">Home</div>
+                        </div>
+                     </a>
+                  </li>
+                  <li data-elem="menu">
+                     <a href="#" class="header__link">
+                        <div class="header__link-items">
+                           <div class="header__link-icon"><img src="{{ url_for('static', filename='profile.svg') }}" width="35" height="31.21" alt=""></div>
+                           <div class="header__link-text">Profile</div>
+                        </div>
+                     </a>
+                  </li>
+                  <li data-elem="menu">
+                     <a href="inventory.html" class="header__link">
+                        <div class="header__link-items">
+                           <div class="header__link-icon"><img src="{{ url_for('static', filename='inventory.svg') }}" width="35" height="31.21" alt=""></div>
+                           <div class="header__link-text">Inventory</div>
+                        </div>
+                     </a>
+                  </li>
+               </ul>
+               <button href="" class="header__register register">
+                  <div class="register__icon"><img src="{{ url_for('static', filename='register.svg') }}" alt="" width="30" height="30"></div>
+                  <div class="register__text">Register</div>
+               </button>
+               <button href="" class="header__sign-up sign-up">
+                  <div class="sign-up__icon"><img src="{{ url_for('static', filename='sign-up.svg') }}" alt="" width="25" height="25"></div>
+                  <div class="sign-up__text">Sign up</div>
+               </button>
+            </div>
+         </div>
+      </header>
+      <div class="live-drop">
+         <div class="live-drop__section">
+            <div class="live-drop__best active">Best drop</div>
+            <div class="live-drop__online">Online drop</div>
+         </div>
+         <div class="live-drop__items">
+            {% if drop is defined %}
+            {% for key, value in drop.items() %}
+            <div data-rarity="{{ value[3] }}" class="live-drop__item item">
+               <div class="item__image"><img src="{{ value[2] }}" alt="" width="70" height="59"></div>
+               <div class="item__title">{{ value[0] }}</div>
+               <div class="item__subtitle">{{ value[1] }}</div>
+            </div>
+            {% endfor %}
+            {% endif %}
+         </div>
+      </div>
+      <div class="inventory">
+         <div class="inventory__title title"><span class="blue">username</span>inventory</div>
+         <div class="inventory__drops drops">
+            <div class="drops__title">drops</div>
+            <div class="drops__content">
+               <div class="container">
+                  <div class="drops__item item">
+                     <div class="drops__weapon">
+                        <div class="item__image"><img src="{{ value[1] }}" alt="" width="100" height="70"></div>
+                        <div class="item__title"></div>
+                        <div class="item__subtitle"></div>
+                     </div>
+                     <div class="drops__btn btn">sell</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <footer class="footer">
+         <div class="container">
+            <div class="footer__row">
+               <div class="footer__logo"></div>
+               <div class="footer__item">
+                  <div class="footer__img"><img src="{{ url_for('static', filename='case.svg') }}" alt="" width="65" height="65"></div>
+                  <div class="footer__text">
+                     <div class="footer__title">12 560</div>
+                     <div class="footer__subtitle"><span class="pink">Cases opened</span></div>
+                  </div>
+               </div>
+               <div class="footer__item">
+                  <div class="footer__img"><img src="{{ url_for('static', filename='people-group.svg') }}" alt="" height="95"></div>
+                  <div class="footer__text">
+                     <div class="footer__title">12 560</div>
+                     <div class="footer__subtitle"><span class="blue">Users</span></div>
+                  </div>
+               </div>
+               <div class="footer__item">
+                  <div class="footer__img"><img src="{{ url_for('static', filename='person.svg') }}" alt="" height="80"></div>
+                  <div class="footer__text">
+                     <div class="footer__title">2 700</div>
+                     <div class="footer__subtitle"><span class="green">Online</span></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+   </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+   integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</html>

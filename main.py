@@ -42,7 +42,7 @@ def home():
         id = last_item.id
         data_drop[id] = [weapon, skin, url, rarity]
 
-    return render_template("index.html", mydict=data_cases, drop=data_drop)
+    return render_template("inventory.html", mydict=data_cases, drop=data_drop)
 
 
 @app.route("/case/<usercase>")

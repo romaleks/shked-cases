@@ -46,3 +46,15 @@
       @include scale(1.06);
    }
 }
+//===============================================================================================================================
+.title {
+   font-weight: 700;
+   font-size: 28px;
+   color: #FFFFFF;
+   line-height: 32px;
+   text-align: center;
+   text-transform: uppercase;
+   .blue {
+      color: #00ADFF;
+   }
+}

@@ -229,15 +229,6 @@ body {
    padding: 25px 0 35px;
    &__title {
       margin: 0px 0px 30px 0px;
-      font-weight: 700;
-      font-size: 28px;
-      color: #FFFFFF;
-      line-height: 32px;
-      text-align: center;
-      text-transform: uppercase;
-      .blue {
-         color: #00ADFF;
-      }
    }
 
    &__row {
@@ -261,4 +252,84 @@ body {
 
 .space {
    padding: 100px;
+}
+//===============================================================================================================================
+.inventory {
+   padding: 40px;
+   &__title {
+      position: relative;
+      margin: 0 0 70px 0;
+      &:after {
+         content: '';
+         position: absolute;
+         width: 80px;
+         height: 4px;
+         background-color: #00ADFF;
+         left: 50%;
+         @include tr(-50%,0px,0px);
+         bottom: -15px;
+      }
+   }
+
+   &__drops {
+      margin: 0 auto;
+   }
+}
+.drops {
+   padding: 30px 0 100px 0;
+   background: #1B212F;
+   max-width: 1400px;
+   border-radius: 36px;
+   text-align: center;
+   &__title {
+      display: inline;
+      padding: 10px 25px;
+      background: rgba(24, 24, 34, 0.8);
+      border-radius: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 32px;
+      line-height: 37px;
+      color: #FFFFFF;
+      margin: 0 0 40px 0;
+   }
+
+   &__content {
+      @include flexbox();
+      flex-wrap: wrap;
+      gap: 35px;
+   }
+
+   &__item {
+      padding: 45px 30px 30px 30px;
+   }
+
+   &__weapon {
+      margin: 0 0 25px 0;
+   }
+
+   &__btn {
+      font-size: 20px;
+      text-transform: none;
+      line-height: normal;
+      padding: 5px 10px;
+      box-shadow: none;
+      border-radius: 8px;
+      &:hover {
+         @include scale(1.03)
+      }
+   }
+}
+.item {
+
+   &__image {
+   }
+
+   &__title {
+   }
+
+   &__subtitle {
+   }
+}
+.btn {
 }
